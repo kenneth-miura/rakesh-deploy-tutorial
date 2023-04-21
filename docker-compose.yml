@@ -20,6 +20,3 @@ services:
     image: rakeshpotnuru/productivity-app:server-latest
     environment:
       - MONGODB_URI=${MONGODB_URI}
-      - TOKEN_KEY=${TOKEN_KEY}
-      - EMAIL=${EMAIL}
-      - PASSWORD=${PASSWORD}
