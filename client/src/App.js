@@ -6,6 +6,7 @@ import "./App.css";
 
 const App = () => {
   const [activities, setActivities] = useState([]);
+  const [response, setResponse] = useState("");
 
 
   /* Fetching the data from the backend and setting the state of activities to the data. */
@@ -19,6 +20,22 @@ const App = () => {
     };
     fetchData();
   });
+
+  useEffect(() => {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/health_check`)
+      .then(data =>
+        {
+          if(data.status !== 200){
+            throw new Error(data.statusText);
+          }
+          else {
+            return data.text();
+          }
+        })
+      .then(msg => {
+        setResponse(msg);
+      })
+  })
 
   /**
    * When the user clicks the submit button, the function will prevent the default action of the form,
@@ -91,6 +108,7 @@ const App = () => {
           <p>No activities yet</p>
         )}
       </main>
+      <p>{`From the server: ${response}`}</p>
     </div>
   );
 };

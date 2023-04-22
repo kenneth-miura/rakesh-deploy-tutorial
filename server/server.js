@@ -25,6 +25,7 @@ const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/todoapiDB";
     /* Telling the application to use the express.json() middleware. This middleware will parse the body of
 
 any request that has a Content-Type of application/json. */
+console.log(PORT);
 
 app.use(express.json());
 app.use('/api', ActivityRouter);
@@ -40,10 +41,17 @@ app.get("/", (req, res) => {
 
 });
 
+app.get("/api/health_check", (req, res) => {
+
+  res.send("Server Connected!");
+
+});
+app.listen(PORT, console.log("Server stated on port 5000"));
+
 
 /* Connecting to the database and then starting the server. */
 
-mongoose
+/*mongoose
 
   .connect(MONGODB_URI, { useNewUrlParser: true })
 
@@ -57,4 +65,4 @@ mongoose
 
     console.log(err);
 
-  });
+  });*/
