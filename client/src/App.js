@@ -10,7 +10,7 @@ const App = () => {
 
 
   /* Fetching the data from the backend and setting the state of activities to the data. */
-  useEffect(() => {
+  /*useEffect(() => {
     const fetchData = async () => {
       const result = await fetch(
         `${process.env.REACT_APP_BACKEND_URL}/activities`,
@@ -19,7 +19,7 @@ const App = () => {
       setActivities(data);
     };
     fetchData();
-  });
+  });*/
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_BACKEND_URL}/health_check`)

@@ -28,8 +28,6 @@ any request that has a Content-Type of application/json. */
 console.log(PORT);
 
 app.use(express.json());
-app.use('/api', ActivityRouter);
-
 
 /* This is a route handler. It is listening for a GET request to the root route of the application.
 
