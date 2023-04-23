@@ -22,7 +22,7 @@ const App = () => {
   });*/
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/health_check`)
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/health_check`)
       .then(data =>
         {
           if(data.status !== 200){
