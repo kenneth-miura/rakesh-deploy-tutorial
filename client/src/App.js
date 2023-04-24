@@ -51,7 +51,7 @@ const App = () => {
       time: event.target.time.value,
     };
 
-    await fetch(`${process.env.REACT_APP_BACKEND_URL}/activity`, {
+    await fetch(`${process.env.REACT_APP_BACKEND_URL}api/activity`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
