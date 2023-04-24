@@ -59,7 +59,7 @@ mongoose
   })
 
   .catch((err) => {
-
+    console.log("MONGODB ERROR")
     console.log(err);
 
   });
