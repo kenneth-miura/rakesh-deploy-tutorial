@@ -26,7 +26,7 @@ const App = () => {
       .then(data =>
         {
           if(data.status !== 200){
-            throw new Error(`${data.status} ${data.statusText}`);
+            throw new Error(`error code: ${data.status}, error message: ${data.statusText}`);
           }
           else {
             return data.text();
