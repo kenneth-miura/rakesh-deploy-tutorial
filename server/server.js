@@ -51,11 +51,8 @@ app.get("/api/health_check", (req, res) => {
 mongoose
 
   .connect(MONGODB_URI, { useNewUrlParser: true })
-
   .then(() => {
-
-    app.listen(PORT, console.log("Server stated on port 5000"));
-
+    app.listen(PORT, console.log("Server stated on port 5000 woo!"));
   })
 
   .catch((err) => {
