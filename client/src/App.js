@@ -10,30 +10,29 @@ const App = () => {
 
 
   /* Fetching the data from the backend and setting the state of activities to the data. */
-  /*useEffect(() => {
+  useEffect(() => {
     const fetchData = async () => {
       const result = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/activities`,
+        `${process.env.REACT_APP_BACKEND_URL}api/activities`,
       );
       const data = await result.json();
       setActivities(data);
     };
     fetchData();
-  });*/
+  });
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_BACKEND_URL}`)
       .then(data =>
         {
           if(data.status !== 200){
-            throw new Error(data.statusText);
+            throw new Error(`${data.status} ${data.statusText}`);
           }
           else {
             return data.text();
           }
         })
       .then(msg => {
-        alert(msg);
         setResponse(msg);
       })
       .catch(error => console.log(error))

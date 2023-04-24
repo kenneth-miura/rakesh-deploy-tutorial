@@ -4,7 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 
 const cors = require("cors");
-
+const ActivityRouter = require("./routes/activity.route");
 
 
 const app = express();
@@ -27,6 +27,7 @@ any request that has a Content-Type of application/json. */
 console.log(PORT);
 
 app.use(express.json());
+app.use('/api', ActivityRouter);
 
 /* This is a route handler. It is listening for a GET request to the root route of the application.
 
@@ -43,12 +44,11 @@ app.get("/api/health_check", (req, res) => {
   res.send("Server Connected!");
 
 });
-app.listen(PORT, console.log("Server stated on port 5000"));
 
 
 /* Connecting to the database and then starting the server. */
 
-/*mongoose
+mongoose
 
   .connect(MONGODB_URI, { useNewUrlParser: true })
 
@@ -62,4 +62,4 @@ app.listen(PORT, console.log("Server stated on port 5000"));
 
     console.log(err);
 
-  });*/
+  });
