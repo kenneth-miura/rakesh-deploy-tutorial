@@ -109,7 +109,7 @@ const App = () => {
           <p>No activities yet</p>
         )}
       </main>
-      <p>{`From the server: ${response}`}</p>
+      <p>{`From the server(woo!): ${response}`}</p>
     </div>
   );
 };
